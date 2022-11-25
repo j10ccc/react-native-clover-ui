@@ -10,7 +10,7 @@ const DemoCard = () => {
   };
   return (
     <Demo>
-      <Card title="Card">
+      <Card title="Button">
         <Button onPress={() => handlePress()}>count {count}</Button>
       </Card>
     </Demo>
@@ -18,16 +18,13 @@ const DemoCard = () => {
 };
 
 const HomeScreen = () => {
-  const arr: number[] = [1, 1, 1, 1, 1, 1, 1];
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.container}>
         <Demo>
           <MetaInfo />
         </Demo>
-        {arr.map((item, index) => (
-          <DemoCard key={index} />
-        ))}
+        <DemoCard />
       </ScrollView>
     </SafeAreaView>
   );

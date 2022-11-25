@@ -1,18 +1,21 @@
 import { ReactNode } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { theme } from "../constants/styles";
 
 type CardPropsType = {
   title?: string | ReactNode;
   children?: ReactNode;
   footer?: ReactNode;
+  extra?: ReactNode;
 };
 
 const Card = (props: CardPropsType) => {
-  const { title, children } = props;
+  const { title, children, extra } = props;
   return (
     <View style={style.container}>
       <View style={style.cardHeader}>
         <Text style={style.cardTitle}>{title}</Text>
+        <View style={style.cardExtra}>{extra}</View>
       </View>
       <View style={style.cardBody}>{children}</View>
       <View style={style.cardFooter}></View>
@@ -23,19 +26,20 @@ const Card = (props: CardPropsType) => {
 const style = StyleSheet.create({
   container: {
     borderRadius: 16,
-    backgroundColor: "#fff",
+    backgroundColor: theme.defaultTheme.__BG,
     paddingHorizontal: 8,
   },
   cardHeader: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 14,
     paddingVertical: 16,
+    flexDirection: "row",
   },
   cardTitle: {
-    fontSize: 24,
+    fontSize: 18,
+    flex: 1,
   },
-  cardBody: {
-    borderTopColor: "black",
-  },
+  cardExtra: {},
+  cardBody: {},
   cardFooter: {
     paddingBottom: 16,
   },
