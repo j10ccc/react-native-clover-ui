@@ -3,25 +3,36 @@ import { StyleSheet, View } from "react-native";
 
 type SpacePropsType = {
   children: ReactNode;
-  align?: "start" | "end" | "center" | "baseline";
+  align?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "stretch";
   direction?: "column" | "row" | "row-reverse" | "column-reverse";
   justify?:
-    | "start"
-    | "end"
     | "center"
-    | "between"
-    | "around"
-    | "evenly"
-    | "stretch";
+    | "flex-start"
+    | "flex-end"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
 };
 
-// TODO: direct-column
-
 const Space = (props: SpacePropsType) => {
-  const { children, direction = "row" } = props;
+  const {
+    children,
+    direction = "row",
+    justify = "flex-start",
+    align = "flex-start",
+  } = props;
+
   const dynamicStyle = StyleSheet.create({
     container: {
       flexDirection: direction,
+      justifyContent: justify,
+      alignContent: align,
     },
   });
 
@@ -36,7 +47,6 @@ const Space = (props: SpacePropsType) => {
 
 const style = StyleSheet.create({
   container: {
-    flex: 1,
     flexWrap: "wrap",
   },
   spaceItem: {

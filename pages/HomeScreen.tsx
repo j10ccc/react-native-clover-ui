@@ -27,10 +27,6 @@ const DemoNav = ({ navigation }: any) => {
       <Space>
       <Button onPress={handlePressNavigate}>NavToDashBoard</Button>
       <Button>hel</Button>
-      <Button>hel</Button>
-      <Button>hel</Button>
-      <Button>hel</Button>
-      <Button>hel</Button>
       <Button onPress={handlePressPush}>PushToDashBoard</Button>
       </Space>
     </Demo>
