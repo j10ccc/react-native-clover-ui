@@ -22,7 +22,6 @@ const Button = (props: ButtonPropsType) => {
 const style = StyleSheet.create({
   container: {
     borderRadius: 8,
-    marginHorizontal: "1%",
     marginButtom: 6,
     alignSelf: "flex-start",
   },
