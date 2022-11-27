@@ -16,7 +16,7 @@ const defaultTheme: any = {
   __RED: "#fa5151",
   __ORANGE: "#fa9d3b",
   __YELLOW: "#ffc300",
-  __GREEN: "#91d300",
+  __GREEN: "#58be6a",
   __LIGHTGREEN: "#95ec69",
   __BRAND: "#07c160",
   __BLUE: "#10aeff",
@@ -28,6 +28,17 @@ const defaultTheme: any = {
 
   __FG: "#000",
   __BG: "#fff",
+
+  __BTN_TEXT_ORANGE: "#fa9d3b",
+  __BTN_TEXT_GREEN: "#06ae56",
+  __BTN_TEXT_BLUE: "#10aeff",
+  __BTN_TEXT_BLACK: "rgba(0, 0, 0, 0.5)",
+  __BTN_ORANGE: "#fa9d3b",
+  __BTN_GREEN: "#58be6a",
+  __BTN_BLUE: "#10aeff",
+  __BTN_BLACK: "#000",
+  __BTN_BG_0: "#f2f2f2",
+  __BTN_TEXT: "rgba(255, 255, 255, 0.9)",
 
   __TAG_TEXT_ORANGE: "#fa9d3b",
   __TAG_BACKGROUND_ORANGE: "rgba(250, 157, 59, 0.1)",

@@ -1,16 +1,22 @@
 import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import { Button, Demo, Space } from "../components";
 import MetaInfo from "../components/MetaInfo";
-import { useState } from "react";
 
 const DemoButton = () => {
-  const [count, setCount] = useState(0);
-  const handlePress = () => {
-    setCount(count + 1);
-  };
   return (
     <Demo title="Button">
-      <Button onPress={() => handlePress()}>count {count}</Button>
+      <Space>
+        <Button color="green">Primary1</Button>
+        <Button color="orange">Primary2</Button>
+        <Button color="blue">Primary3</Button>
+        <Button color="black">Primary4</Button>
+      </Space>
+      <Space>
+        <Button color="green" type="weak">Weak1</Button>
+        <Button color="orange" type="weak">Weak2</Button>
+        <Button color="blue" type="weak">Weak3</Button>
+        <Button color="black" type="weak">Weak4</Button>
+      </Space>
     </Demo>
   );
 };
@@ -25,9 +31,8 @@ const DemoNav = ({ navigation }: any) => {
   return (
     <Demo title="Navigate">
       <Space>
-      <Button onPress={handlePressNavigate}>NavToDashBoard</Button>
-      <Button>hel</Button>
-      <Button onPress={handlePressPush}>PushToDashBoard</Button>
+        <Button onPress={handlePressNavigate}>NavToDashBoard</Button>
+        <Button onPress={handlePressPush}>PushToDashBoard</Button>
       </Space>
     </Demo>
   );
