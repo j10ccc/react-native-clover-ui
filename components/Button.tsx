@@ -23,7 +23,7 @@ const Button = (props: ButtonPropsType) => {
   });
 
   return (
-    <TouchableHighlight onPress={() => onPress?.()} style={style.container}>
+    <TouchableHighlight onPress={onPress} style={style.container}>
       <View style={[style.button, dynamicStyle.button]}>
         <Text style={[style.buttonLabel, dynamicStyle.buttonLabel]}>
           {children}

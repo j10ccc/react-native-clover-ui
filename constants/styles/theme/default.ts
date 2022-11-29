@@ -7,7 +7,7 @@ const defaultTheme: any = {
   __BG_5: "#fff",
 
   __FG_0: "rgba(0, 0, 0, 0.9)",
-  __FG_HALF: "rgba(0, 0, 0, 0.9)",
+  __FG_HALF: "rgba(0, 0, 0, 0.8)",
   __FG_1: "rgba(0, 0, 0, 0.5)",
   __FG_2: "rgba(0, 0, 0, 0.3)",
   __FG_3: "rgba(0, 0, 0, 0.1)",

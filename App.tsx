@@ -2,16 +2,19 @@ import HomeScreen from "./pages/HomeScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DashBoard from "./pages/DashBoard";
+import { PortalProvider } from "./components/Portal";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="HomePage" component={HomeScreen} />
-        <Stack.Screen name="DashBoard" component={DashBoard} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <PortalProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="HomePage" component={HomeScreen} />
+          <Stack.Screen name="DashBoard" component={DashBoard} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PortalProvider>
   );
 }
