@@ -1,42 +1,49 @@
 import { ReactNode, createContext, useState, useContext } from "react";
 
-type PortalGatesType = {
-  [key: string]: ReactNode;
-};
-
-export const PortalContext = createContext({
-  gates: {} as PortalGatesType,
-  teleport: (gateName: string, element: ReactNode) => {},
-
+export const PortalContext = createContext<{
+  elementQueue: ReactNode[];
+  teleport: (element: ReactNode) => void;
+  telepop: () => void;
+}>({
+  elementQueue: [],
+  teleport: (element: ReactNode) => {},
+  telepop: () => {}
 });
 
 export const PortalProvider = (props: { children: ReactNode }) => {
   const { children } = props;
-  const [gates, setGates] = useState<PortalGatesType>({});
+  const [elementQueue, setElementQueue] = useState<ReactNode[]>([]);
 
-  const teleport = (gateName: string, element: ReactNode) => {
-    setGates({ ...gates, [gateName]: element });
+  const teleport = (element: ReactNode) => {
+    // 添加元素
+    setElementQueue([...elementQueue, element]);
+  };
+  const telepop = () => {
+    const tmp = [...elementQueue];
+    tmp.pop();
+    setElementQueue(tmp);
   };
 
   return (
-    <PortalContext.Provider value={{ gates: gates, teleport: teleport }}>
+    <PortalContext.Provider
+      value={{ elementQueue: elementQueue, teleport: teleport, telepop: telepop}}
+    >
       {children}
     </PortalContext.Provider>
   );
 };
 
 type PortalPropsType = {
-  gateName: string;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const Portal = (props: PortalPropsType) => {
-  const { gateName, children } = props;
-  const { gates } = useContext(PortalContext);
-  console.log(gates);
+  const { children } = props;
+  const { elementQueue } = useContext(PortalContext);
+  console.log(elementQueue);
   return (
     <>
-      {gates[gateName]}
+      {elementQueue}
       {children}
     </>
   );

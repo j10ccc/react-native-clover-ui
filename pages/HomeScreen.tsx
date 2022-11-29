@@ -1,5 +1,5 @@
-import { StyleSheet, SafeAreaView, ScrollView, Button as RNButton } from "react-native";
-import { Button, Demo, Space, Portal, useModal } from "../components";
+import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { Button, Demo, Space, useModal } from "../components";
 import MetaInfo from "../components/MetaInfo";
 
 const DemoButton = () => {
@@ -30,11 +30,16 @@ const DemoButton = () => {
 };
 
 const DemoModal = () => {
-  const { Alert } = useModal("HomeScreen");
+  const { Alert, Confirm } = useModal();
+  const hello =
+    "这是一段长文本这是一段长文本这是一段长文本这是一段长文本这是一段长文本";
 
   return (
     <Demo title="Modal">
-      <Button onPress={() => Alert({content: "hello"})}>Open Modal</Button>
+      <Space>
+        <Button onPress={() => Alert({ content: hello })}>Alert</Button>
+        <Button onPress={() => Confirm({ content: "你好" })}>Confirm</Button>
+      </Space>
     </Demo>
   );
 };
@@ -60,12 +65,10 @@ const HomeScreen = ({ navigation }: any) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.container}>
-        <Portal gateName="HomeScreen">
-          <MetaInfo />
-          <DemoButton />
-          <DemoNav navigation={navigation} />
-          <DemoModal />
-        </Portal>
+        <MetaInfo />
+        <DemoButton />
+        <DemoNav navigation={navigation} />
+        <DemoModal />
       </ScrollView>
     </SafeAreaView>
   );

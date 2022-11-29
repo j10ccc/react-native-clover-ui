@@ -10,7 +10,7 @@ type CardPropsType = {
 };
 
 const Card = (props: CardPropsType) => {
-  const { title, children, extra } = props;
+  const { title, children, extra, footer } = props;
   return (
     <View style={style.container}>
       <View style={style.cardHeader}>
@@ -18,7 +18,7 @@ const Card = (props: CardPropsType) => {
         <View style={style.cardExtra}>{extra}</View>
       </View>
       <View style={style.cardBody}>{children}</View>
-      <View style={style.cardFooter}></View>
+      <View style={style.cardFooter}>{footer}</View>
     </View>
   );
 };
