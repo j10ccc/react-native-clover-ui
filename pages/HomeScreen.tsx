@@ -1,5 +1,5 @@
 import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
-import { Button, Demo, Space, useModal } from "../components";
+import { Button, Demo, Space, useModal, useToast } from "../components";
 import MetaInfo from "../components/MetaInfo";
 
 const DemoButton = () => {
@@ -44,6 +44,19 @@ const DemoModal = () => {
   );
 };
 
+const DemoToast = () => {
+  const { Show } = useToast();
+  const hello = "hello world";
+
+  return (
+    <Demo title="Toast">
+      <Space>
+        <Button onPress={() => Show({ content: hello, position: "center"})}>hello world</Button>
+      </Space>
+    </Demo>
+  );
+};
+
 const DemoNav = ({ navigation }: any) => {
   const handlePressNavigate = () => {
     navigation.navigate("DashBoard");
@@ -69,6 +82,7 @@ const HomeScreen = ({ navigation }: any) => {
         <DemoButton />
         <DemoNav navigation={navigation} />
         <DemoModal />
+        <DemoToast />
       </ScrollView>
     </SafeAreaView>
   );

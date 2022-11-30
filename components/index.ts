@@ -4,6 +4,7 @@ import Demo from "./Demo";
 import Tag from "./Tag";
 import Space from "./Space";
 import { useModal } from "./Modal";
+import { useToast } from "./Toast";
 import Portal, { PortalContext, PortalProvider } from "./Portal";
 
 export {
@@ -16,4 +17,5 @@ export {
   PortalProvider,
   PortalContext,
   useModal,
+  useToast,
 };
