@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "my-rn-app",
-    "slug": "my-rn-app",
-    "version": "1.0.0",
+    "name": "React Native WUI Demo",
+    "slug": "rn-wui-demo",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -24,10 +22,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.smd.wuidemo",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9d4720a5-38d1-46d4-9bfd-860628ccb1d5"
+      }
     }
   }
 }

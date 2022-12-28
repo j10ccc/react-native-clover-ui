@@ -1,0 +1,38 @@
+{
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "extends": [
+    "@react-native-community"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "react-native/react-native": true
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "react-native/no-inline-styles": 0,
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}

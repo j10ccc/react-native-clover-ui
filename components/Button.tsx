@@ -7,18 +7,24 @@ type ButtonPropsType = {
   onPress?: () => void;
   type?: "primary" | "weak";
   color?: "green" | "orange" | "blue" | "black";
-  disable?: boolean // TODO
+  disable?: boolean; // TODO:
 };
 
 const Button = (props: ButtonPropsType) => {
-  const { children, onPress, type = "primary", color="green"} = props;
+  const { children, onPress, type = "primary", color = "green" } = props;
 
   const dynamicStyle = StyleSheet.create({
     button: {
-      backgroundColor: type === "primary" ? theme.defaultTheme[`__BTN_${color.toUpperCase()}`]: theme.defaultTheme.__BG_1,
+      backgroundColor:
+        type === "primary"
+          ? theme.defaultTheme[`__BTN_${color.toUpperCase()}`]
+          : theme.defaultTheme.__BG_1,
     },
     buttonLabel: {
-      color: type === "primary" ? theme.defaultTheme.__BTN_TEXT :theme.defaultTheme[`__BTN_TEXT_${color.toUpperCase()}`],
+      color:
+        type === "primary"
+          ? theme.defaultTheme.__BTN_TEXT
+          : theme.defaultTheme[`__BTN_TEXT_${color.toUpperCase()}`],
     },
   });
 

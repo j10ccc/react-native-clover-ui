@@ -1,32 +1,49 @@
-import { ReactNode, createContext, useState, useContext } from "react";
+import React, {
+  ReactNode,
+  useRef,
+  createContext,
+  useState,
+  useContext,
+} from "react";
 
-export const PortalContext = createContext<{
-  elementQueue: ReactNode[];
+type ContextType = {
+  currentElement: ReactNode;
   teleport: (element: ReactNode) => void;
   telepop: () => void;
-}>({
-  elementQueue: [],
-  teleport: (element: ReactNode) => {},
-  telepop: () => {}
+};
+
+export const PortalContext = createContext<ContextType>({
+  currentElement: null,
+  teleport: (_element: ReactNode) => {},
+  telepop: () => {},
 });
 
 export const PortalProvider = (props: { children: ReactNode }) => {
   const { children } = props;
-  const [elementQueue, setElementQueue] = useState<ReactNode[]>([]);
+  const elementQueue = useRef<ReactNode[]>([]);
+  // FIXME:
+  const [currentElement, setCurrentElement] = useState<ReactNode>(
+    elementQueue.current[1]
+  );
 
   const teleport = (element: ReactNode) => {
     // 添加元素
-    setElementQueue([...elementQueue, element]);
+    elementQueue.current.push(element);
+    setCurrentElement(elementQueue.current[0]);
   };
   const telepop = () => {
-    const tmp = [...elementQueue];
-    tmp.pop();
-    setElementQueue(tmp);
+    // 移除首个元素
+    elementQueue.current.shift();
+    setCurrentElement(elementQueue.current[0]);
   };
 
   return (
     <PortalContext.Provider
-      value={{ elementQueue: elementQueue, teleport: teleport, telepop: telepop}}
+      value={{
+        currentElement: currentElement,
+        teleport: teleport,
+        telepop: telepop,
+      }}
     >
       {children}
     </PortalContext.Provider>
@@ -39,11 +56,10 @@ type PortalPropsType = {
 
 const Portal = (props: PortalPropsType) => {
   const { children } = props;
-  const { elementQueue } = useContext(PortalContext);
-  console.log(elementQueue);
+  const { currentElement } = useContext(PortalContext);
   return (
     <>
-      {elementQueue}
+      {currentElement}
       {children}
     </>
   );

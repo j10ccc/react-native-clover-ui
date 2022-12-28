@@ -1,9 +1,4 @@
-import {
-  Space,
-  Button,
-  Demo,
-  useModal,
-} from "../components";
+import { Space, Button, Demo, useModal } from "../components";
 import { SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
 const DashBoard = ({ navigation }: any) => {
@@ -16,18 +11,18 @@ const DashBoard = ({ navigation }: any) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.container}>
-          <Demo title="Navigate">
-            <Space>
-              <Button onPress={goBack}>goBack</Button>
-              <Button
-                onPress={() => {
-                  Alert({ content: "DashBoard" });
-                }}
-              >
-                openModal
-              </Button>
-            </Space>
-          </Demo>
+        <Demo title="Navigate">
+          <Space>
+            <Button onPress={goBack}>goBack</Button>
+            <Button
+              onPress={() => {
+                Alert({ content: "DashBoard" });
+              }}
+            >
+              openModal
+            </Button>
+          </Space>
+        </Demo>
       </ScrollView>
     </SafeAreaView>
   );

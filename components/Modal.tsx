@@ -33,13 +33,17 @@ const Modal = (props: ModalConfigType) => {
   const { telepop } = useContext(PortalContext);
 
   const handleClose = () => {
-
     setModalVisible(false);
     telepop();
   };
 
   return (
-    <RNModal animationType="fade" visible={modalVisible} transparent={true}>
+    <RNModal
+      animationType="fade"
+      visible={modalVisible}
+      transparent={true}
+      statusBarTranslucent
+    >
       <Pressable
         style={style.modalMask}
         onPress={closeOnMaskClick ? handleClose : undefined}

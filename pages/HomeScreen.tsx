@@ -46,12 +46,16 @@ const DemoModal = () => {
 
 const DemoToast = () => {
   const { Show } = useToast();
-  const hello = "hello world";
 
   return (
     <Demo title="Toast">
       <Space>
-        <Button onPress={() => Show({ content: hello, position: "center"})}>hello world</Button>
+        <Button onPress={() => Show({ content: "hello", duration: 10000 })}>
+          hello
+        </Button>
+        <Button onPress={() => Show({ content: "hi", maskClickable: false })}>
+          hi
+        </Button>
       </Space>
     </Demo>
   );
